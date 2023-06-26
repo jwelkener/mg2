@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Meme Generator</title>
+  <link rel="stylesheet" type="text/css" href="MG.css">
+</head>
+
+<body>
+
+  <h1>MEME GENERATOR</h1>
+  <!-- <div id="display-img">
+    <div id="topText"></div>
+    <div id="bottomText"></div>
+    <button class="delete-button" id="deleteButton">X</button>
+  </div> -->
+
+  <form id="meme-form">
+    <input type="text" id="img-url" placeholder="Enter image URL:" required /> <br>
+    <input type="text" id="top-text" placeholder="Enter text for top of image:" required /> <br>
+    <input type="text" id="bottom-text" placeholder="Enter text for bottom of image (optional):" /> <br>
+    <button type="submit">Create Meme</button>
+  </form>
+
+  <div class="meme">
+    <img src="">
+    <h2 class="topText">
+    <h2 class="bottomText">
+    <button class="delete-button">Delete</button>
+    <ul id="meme-list"></ul>
+</div>
+
+
+  <script src="MG.js"></script>
+
+</body>
+
+</html>
