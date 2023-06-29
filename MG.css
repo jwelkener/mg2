@@ -28,17 +28,20 @@ img {
 	font-weight: bold;
 	position:absolute;
 	text-align: center;
+	width: 100%;
   }
   
   
   .topText {
-	top: 10%;
+	top: 5%;
 	position: absolute;
+	width: 100%;
   }
   
   .bottomText {
-	top: 90%;
+	top: 95%;
 	position: absolute;
+	width: 100%;
   }
   
   .delete-button {
