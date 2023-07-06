@@ -1,59 +1,88 @@
-document.getElementById("meme-form").addEventListener("submit", function(e) {
+document.getElementById("meme-form").addEventListener("submit", function (e) {
 	e.preventDefault();
   
 	let imgUrl = document.getElementById('img-url').value.trim();
 	let topText = document.getElementById('top-text').value.trim();
 	let bottomText = document.getElementById('bottom-text').value.trim();
+
+	validateImage(imgUrl).then(() => {
   
-
 	let memeElement = createMemeElement(imgUrl, topText, bottomText);
-
-	let memeList = document.getElementById("meme-list");
-	memeList.appendChild(memeElement);
-
-	document.getElementById('img-url').value = '';
-	document.getElementById('top-text').value = '';
-	document.getElementById('bottom-text').value = '';
-
+  
+	if (memeElement) {
+	  let memeList = document.getElementById("meme-list");
+	  memeList.appendChild(memeElement);
+  
+	  document.getElementById('img-url').value = '';
+	  document.getElementById('top-text').value = '';
+	  document.getElementById('bottom-text').value = '';
+	} else {
+	  alert("Please enter a valid image URL");
+	}
+})
+	.catch(() => {
+		alert("Please enter a valid image URL");
   });
+});
 
-  function createMemeElement (imgUrl, topText, bottomText) {
-	let memeElement = document.createElement("div");
-	memeElement.classList.add("meme");
-	// creates the meme element
-
-	let memeImage = document.createElement("div");
-	memeImage.classList.add("meme-image");
-	memeElement.appendChild(memeImage);
-	//encapsulate the image and text elements
-
-	let imageElement = document.createElement("img");
-	imageElement.src = imgUrl;
-	imageElement.alt = "User Image";
-	memeElement.appendChild(imageElement);
-	//creates the image element
-
-	let topTextElement = document.createElement("div");
-	topTextElement.classList.add("meme-text", "topText");
-	topTextElement.textContent = topText;
-	memeElement.appendChild(topTextElement);
-	// creates the top text element
-
-	let bottomTextElement = document.createElement("div");
-	bottomTextElement.classList.add("meme-text", "bottomText");
-	bottomTextElement.textContent = bottomText;
-	memeElement.appendChild(bottomTextElement);	
-	// creates the bottom text element
-
-	let deleteButton = document.createElement("button");
-	deleteButton.classList.add("delete-button");
-	deleteButton.textContent = "Delete";
-	deleteButton.addEventListener("click", function() {
-		memeElement.remove();
+function validateImage(url) {
+	return new Promise((resolve, reject) => {
+	let image = new Image();
+	image.onload = () => resolve();
+	image.onerror = () => reject();
+	image.src = url;
 	});
-	memeElement.appendChild(deleteButton);
+}
+  
+  function createMemeElement(imgUrl, topText, bottomText) {
+	let image = new Image();
+	image.src = imgUrl;
+  
+	if (image.complete !== 0) {
+	  let memeElement = document.createElement("div");
+	  memeElement.classList.add("meme");
+  
+	  let memeContainer = document.createElement("div");
+	  memeContainer.classList.add("meme-container"); // Corrected class name
+	  memeElement.appendChild(memeContainer);
+  
+	  let imageElement = document.createElement("img");
+	  imageElement.src = imgUrl;
+	  imageElement.alt = "User Image";
+	  memeContainer.appendChild(imageElement);
+  
+	  let topTextElement = document.createElement("div");
+	  topTextElement.classList.add("meme-text", "topText");
+	  topTextElement.textContent = topText;
+	  memeContainer.appendChild(topTextElement);
+  
+	  let bottomTextElement = document.createElement("div");
+	  bottomTextElement.classList.add("meme-text", "bottomText");
+	  bottomTextElement.textContent = bottomText;
+	  memeContainer.appendChild(bottomTextElement);
+  
+	  let deleteButton = document.createElement("button");
+	  deleteButton.classList.add("delete-button");
+	  deleteButton.textContent = "X";
+	  memeElement.appendChild(deleteButton);
 
-	return memeElement;
+	
+	  memeElement.addEventListener("mouseenter", function () {
+		deleteButton.style.display = "block";
+	  });
+	
+	  memeElement.addEventListener("mouseleave", function () {
+		deleteButton.style.display = "none";
+	  });
+	
+	  deleteButton.addEventListener("click", function () {
+		memeElement.remove();
+	  });
 
+
+	  return memeElement;
+	}
+  
+	return null;
   }
   
