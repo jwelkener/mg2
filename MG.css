@@ -1,5 +1,15 @@
 h1 {
 	text-align: center;
+	font: 50px bolder;
+	color:darkgreen;
+	margin: 0;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2 {
+	margin: 0;
+	color:blue;
+	font-family: Brush Script MT, Bold, sans-serif;
 }
 
 body {
@@ -11,9 +21,10 @@ input {
 	margin:5px;
 }
 
+
 img {
-	max-width: 600px;
-	max-height: auto;
+	max-width: 400px;
+	max-height: 450px;
 	align-items: center;
   }
 
@@ -34,14 +45,16 @@ img {
   
   .topText {
 	top: 5%;
-	position: absolute;
 	width: 100%;
   }
   
   .bottomText {
-	top: 95%;
-	position: absolute;
+	top: 85%;
 	width: 100%;
+  }
+
+  .meme {
+	position: relative;
   }
   
   .delete-button {
