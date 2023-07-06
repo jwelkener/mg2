@@ -38,7 +38,7 @@ function validateImage(url) {
 	let image = new Image();
 	image.src = imgUrl;
   
-	if (image.complete !== 0) {
+	if (image.complete) {
 	  let memeElement = document.createElement("div");
 	  memeElement.classList.add("meme");
   
