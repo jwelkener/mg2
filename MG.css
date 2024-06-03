@@ -69,45 +69,5 @@ img {
 	color: white;
 	border: none;
 	cursor: pointer;
-	/* display: none; */
   }
 
-  /* .meme-container:hover .delete-button {
-	display: block;
-  } */
-   
-
-  /* .meme-container img {
-	width: 800px !important; /* Set the desired width */
-	height: auto !important; /* Maintain aspect ratio */
-}
- */
-
-/* .meme {
-  position: relative;
-  margin: 10px;
-  text-align: center;
-  max-width: 200px;
-  max-height: auto;
-}
-
-.meme-image {
-
-  position: relative;
-}
-
-.meme-text-container {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  text-align: center;
-} */
-
-/* .meme-element {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	max-width: 800px;
-  } */
