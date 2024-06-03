@@ -9,7 +9,7 @@ h1 {
 
 h2 {
 	margin: 0;
-	color:darkblue;
+	color: darkblue;
 	font-family: Brush Script MT, Bold, sans-serif;
 }
 
@@ -26,6 +26,7 @@ input {
 img {
 	height: 400px;
 	align-items: center;
+	
   }
 
   .meme-text {
